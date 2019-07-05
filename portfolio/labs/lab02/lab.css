@@ -3,13 +3,13 @@
 */
 
 body {
-	border: solid 1px red;
-	padding: 5px;
+	border: solid 5px purple;
+	padding: 10px;
 }
 
 div {
-	border: solid 1px green;
-	padding: 5px;
+	border: solid 1px rgb(202,60,21);
+	padding: 10px;
 }
 
 p {

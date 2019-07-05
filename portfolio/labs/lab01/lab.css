@@ -3,12 +3,12 @@
 */
 
 body {
-	border: solid 1px red;
+	border: solid 2px rgb(200,3,60);
 	padding: 5px;
 }
 
 div {
-	border: solid 1px green;
+	border: solid 1px yellow;
 	padding: 5px;
 }
 
