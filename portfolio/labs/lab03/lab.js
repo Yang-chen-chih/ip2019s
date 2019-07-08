@@ -2,7 +2,7 @@
 	https://www.html5rocks.com/en/tutorials/file/dndfiles/
 */
 
-function raedFiles(files){
+function readFiles(files){
     var output = [];
     for (var i = 0,f; f = files[i]; i++){
          output.push('<li><strong>',escape(f.name), '</strong>(',f.type||'n/a',')-',
@@ -36,25 +36,34 @@ function raedFiles(files){
 }
 
 
-function handleFileselect(evt){
+function handleFileselect(evt) {
     var files = evt.target.files;
-
+    
     readFiles(files);
 }
 
-function handleFileselect_drag(evt){
-    evt stopPropagation();
+function handleFileselect_drag(evt) {
+    evt.stopPropagation();
     evt.preventDefault();
-    evt.dataTransfer.dropEffect='copy';
+    var files = evt.dataTransfer.files;
+
+    readFiles(files);
+
 }
 
 
-function start(e){
-    document.getElementById('files').addEventListener('change',handleFileselect,false);
+function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy';
+}
+
+function start(e) {
+    document.getElementById('files').addEventListener('change',handleFileselect, false);
 
     var dropZone = document.getElementById('drop_zone');
-    dropZone.addEventListener('dragover',handleDragOver,false);
-    dropZone.addEventListener('drop',handleFileselect_drag,false);
+    dropZone.addEventListener('dragover',handleDragOver, false);
+    dropZone.addEventListener('drop',handleFileselect_drag, false);
 }
 
 
