@@ -10,26 +10,26 @@ function raedFiles(files){
                     f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString():'n/a',
                     '</li>');
     }
-    document.getElementById('list').innerHTML='<ul>'+output.join('')+'</ul>';
+    document.getElementById('list').innerHTML = '<ul>'+output.join('')+'</ul>';
 
 
-    document.getElementById('content').innerHTML='';
-    document.getElementById('svgimage').innerHTML='';
+    document.getElementById('content').innerHTML = '';
+    document.getElementById('svgimage').innerHTML = '';
 
 
     for(var i = 0,f;f=files[i];i++){
-      var reader =new FileReader();
+      var reader = new FileReader();
       reader.readAsText(files[i],'UTF-8');
 
       reader.onload = function(evt){
         var span = document.createElement('span');
         span.setAttribute("class","svgshow");
-        span.innerHTML=evt.target.result;
+        span.innerHTML = evt.target.result;
         document.getElementById('svgimage').insertBefore(span,null);
 
-        var span=document.createElement('span');
+        var span = document.createElement('span');
         span.setAttribute("class","svgtest");
-        span.textContent=evt.target.result;
+        span.textContent = evt.target.result;
         document.getElementById('content').insertBefore(span,null);
       }
     }
