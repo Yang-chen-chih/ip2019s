@@ -5,7 +5,7 @@ img {
 }
 
 div {
-  border: solid 1px blue;
+  border: solid 2px rgb(0, 153, 255);
   margin: 10px;
   padding: 10px;
 }
