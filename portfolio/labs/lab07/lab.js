@@ -19,15 +19,19 @@ function analyze() {
       console.log('m = ' + m);
       remain = remain.slice(m);
 
-      if ( m == -1){ // skip 
+      if ( m == -1){ // skip
         return;
       }
 
-      m = remain.search(/m/i);
-      console.log('m = ' + m);
+      m=remain.search('d=');
+      console.log('d=  m= '+m);
+      remain=remain.slice(m);
 
-      n = remain.search('z"'); // /z/i
-      console.log('n = ' + n);
+      m = remain.search(/m/i);
+      console.log('m  m = ' + m);
+
+      n = remain.search(/z/i); // ''
+      console.log('z   n = ' + n);
 
       subs = remain.slice(m, n+1); // z 也要包含
       console.log('subs = ' + subs);
@@ -36,11 +40,31 @@ function analyze() {
       var subs2 = subs2.replace('462','262');
 
       var path = image.path(subs).fill('none').stroke({color:'red',width:5}).draggable();
-      remain = remain.slice(n+1); // z 也要移除
-      //console.log('remain = ' + remain);
 
+      path.plot(subs2).draggable();
+      //path.animate(2000).plot(subs2).loop(true,true).draggable();
+
+      var newPath=Snap.path.toCubic(subs);
+      console.log('newPath.length='+newPath.length);
       //var pathString = "M382 371C440 281 80 162 82 314 84 467 324 462 382 371z"
       //var newPath = Snap.path.toCubic(pathString);
+      newPath.forEach( function(element) {
+        console.log(element);
+        // statements
+      });
+      for (var i = 0; i < (newPath.length - 1); i++){
+        for (var j = 0; j < newPath[i].length; j++){
+          console.log(' newPath[' + i + '][j] = ' + newPath[i][j] )};
+        }
+
+/*
+        for(var i = 0; i<(newPath.length-1); i++){
+          var segment=newPath[i],point;
+
+          segment.shift();
+          point = setUpPoint(segment);
+        }
+*/
 
       var newPath = [];
       var move = '';
@@ -53,10 +77,14 @@ function analyze() {
       console.log('n = subs.search(/z/i);');
       console.log('n = ' + n);
 
-
+      var move='';
       move = subs.slice(1, m);
       console.log('move.length = ' + move.length);
       console.log('move = ' + move);
+
+      move=move.replace(',',' ');
+      console.log('move.length = ' + move.length);
+      console.log('move = ' +move);
 
       // https://stackoverflow.com/questions/40282519/split-string-by-multiple-spaces-nodejs
       var temp;
@@ -67,7 +95,7 @@ function analyze() {
       console.log('temp[1] = ' + temp[1]);
 
 
-      
+
       var x, y;
       x = parseInt(temp[0],10);
       y = parseInt(temp[1],10);
@@ -76,6 +104,7 @@ function analyze() {
 
       var circle = image.circle(20).fill('red').stroke('blue').move(x-10, y-10).draggable();
 
+      var newPath = [];
       /*
       temp.forEach(function(element) {
         newPath.push(element);
@@ -84,7 +113,7 @@ function analyze() {
 
       console.log('newPath = ' + newPath);
 
-      subs = subs.slice(m+1, n);  // C 也要移除 (大寫C), z 也要移除 
+      subs = subs.slice(m+1, n);  // C 也要移除 (大寫C), z 也要移除
       console.log('subs = ' + subs);
 
       temp = subs.trim().split(/\s+/);
@@ -112,7 +141,7 @@ function analyze() {
       }
 
       */
-    } while (m > 0);
+    }while (m > 0);
 }
 
 function saveText(text, filename) {
@@ -133,7 +162,7 @@ function readFiles(files){
     }
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 
-    //document.getElementById('content').innerHTML = '';    
+    //document.getElementById('content').innerHTML = '';
     //document.getElementById('svgimage').innerHTML = '';
 
     // Loop through the FileList and render image files as thumbnails.
@@ -177,6 +206,27 @@ function handleDragOver(evt) {
 
 function start(e) {
 
+  /*$(document).mousemove(function(event){
+    var p = $("#svgimage2");
+
+    var position = p.position();
+
+    console.log('position = ' + position.left+', ' + position.top);
+
+    var myX = event.pageX - Math.round(position.left);
+    var myY = event.pageY - Math.round(position.top) + 500;
+
+    $("#s5").html("<div style='position:absolute; border-style:none;Top:"
+      + event.pageY + "px; LEFT:"
+      + event.pageX + "px;'>" + "&nbsp&nbsp&npsb&nbsp("
+      + myX + ", "
+      + myY + ")"
+      + "</div>");
+  });*/
+
+
+
+
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
   var dropZone = document.getElementById('drop_zone');
@@ -194,13 +244,13 @@ function start(e) {
   });
 
   // animation
-  setInterval(function(){ 
+  setInterval(function(){
     document.getElementById("drop_zone").style.borderColor = "Crimson";
     document.getElementById("drop_zone").style.color = "Crimson";
     document.getElementById("files").style.color = "Crimson";
   }, 500);
 
-  setInterval(function(){ 
+  setInterval(function(){
     document.getElementById("drop_zone").style.borderColor = "gray";
     document.getElementById("drop_zone").style.color = "gray";
     document.getElementById("files").style.color = "gray";
