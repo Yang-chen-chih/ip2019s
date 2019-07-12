@@ -5,48 +5,46 @@
   <path d="
     M 81 455
     C
-    280 111 46 66 57 40 85 62 41 190 70 323 399 71 45 96 178 40 81 455 z" 
+    46 66 57 40 85 62 41 190 70 323 399 71 45 96 178 40 81 455 z" 
     fill="none" stroke="#000" stroke-width="1px"/>
 
   <circle fill="#ff0000"  cx="81" cy="455" r="16" opacity="0.2">
     <animate attributeName="opacity" to="1" begin="0s" dur="1.9s"  />
   </circle>
 
-<circle fill="#ff9933"  cx="280" cy="111" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begi'[n="2s" dur="1.9s"   />
-  </circle>
+
 
 <circle fill="#ffd11a"  cx="46" cy="66" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="4s" dur="1.9s"   />
+    <animate attributeName="opacity" to="1" begin="2s" dur="1.9s"   />
   </circle>
 
 <circle fill="#00ff00"  cx="57" cy="40" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="6s" dur="1.9s"   />
+    <animate attributeName="opacity" to="1" begin="4s" dur="1.9s"   />
   </circle>
 
 <circle fill="#33cccc"  cx="85" cy="62" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="8s" dur="1.9s"   />
+    <animate attributeName="opacity" to="1" begin="6s" dur="1.9s"   />
   </circle>
 
 <circle fill="#3366ff"  cx="41" cy="190" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="10s" dur="1.9s"   />
+    <animate attributeName="opacity" to="1" begin="8s" dur="1.9s"   />
   </circle>
 
 <circle fill="#a64dffa"  cx="70" cy="323" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="12s" dur="1.9s"   />
+    <animate attributeName="opacity" to="1" begin="10s" dur="1.9s"   />
   </circle>
 
 <circle fill="#ff66cc"  cx="399" cy="71" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="14s" dur="1.9s"   />
+    <animate attributeName="opacity" to="1" begin="12s" dur="1.9s"   />
   </circle>
 
 <circle fill="#660066"  cx="45" cy="96" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="16s" dur="1.9s"  />
+    <animate attributeName="opacity" to="1" begin="14s" dur="1.9s"  />
   </circle>
 
 
 <circle fill="#000000"  cx="178" cy="40" r="8" opacity="0.2">
-    <animate attributeName="opacity" to="1" begin="18s" dur="1.9s"   />
+    <animate attributeName="opacity" to="1" begin="16s" dur="1.9s"   />
   </circle>
 
 
